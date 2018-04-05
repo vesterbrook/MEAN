@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        console.log(hello);
+        var hello = 'world';
+            //console logs UNDEFINED because the variable is being hoisted to the top of their scope
+
+        //2
+        var needle = 'haystack';
+        test()
+        function test(){
+            var needle = 'magnet';
+            console.log(needle);
+        }
+            //console logs MAGNET because 
+
+        //3
+        var brendan = 'super cool';
+        function print(){
+            brendan = 'only okay';
+            console.log(brendan);
+        }
+        console.log(brendan);
+            //console logs SUPER COOL because 
+
+        //4 
+        var food = 'chicken';
+        console.log(food);
+        eat();
+        function eat(){
+            food = 'half-chicken';
+            console.log(food);
+            var food = 'gone';
+        }
+            //console log chicken, half-chicken because it was declared up top. A function call on line 37 executes the first portion and then line 38 invokes the functuon a second time to log half-chicken because it was re declared.
+
+        //5
+        mean();
+        console.log(food);
+        var mean = function () {
+            food = "chicken";
+            console.log(food);
+            var food = "fish";
+            console.log(food);
+        }
+        console.log(food);
+            //console logs type error mean is not a function! 
+
+        //6
+        console.log(genre);
+        var genre = "disco";
+        rewind();
+        function rewind() {
+            genre = "rock";
+            console.log(genre);
+            var genre ="r&b";
+            console.log(genre);
+        }
+        console.log(genre)
+
+            //console logs undefined, rock, r&b, disco
+
+        //7
+        dojo = "san jose";
+        console.log(dojo);
+        learn();
+        function learn() {
+            dojo ="seattle";
+            console.log(dojo);
+            var dojo = "burbank";
+            console.log(dojo);
+        }
+        console.log(dojo);
+
+            //console logs san jose, seattle, burbank, san jose
+    </script>
+</body>
+</html>
