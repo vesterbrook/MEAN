@@ -1,0 +1,40 @@
+app.get('/', function(res, req){
+    mongoose.find({}, function(err, mongoose)){
+        res.render('index', {mongooses: mongooses})
+    }
+})
+app.get('mongoose/:id', function(res, req)
+{
+    mongoose.findone({_id:req.params.id} function(err, mongoose))
+    res.render('viewMongoose', {mongooses: mongooses})
+})
+
+app.get('mongoose/new', function(res, req){
+    res.render('formPage')
+})
+
+app.post('mongooses', function(res,req){
+    var mongoose= new mongoose()
+    mongoose.name
+    mongoose.gender
+    mongoose.save(function, err)
+    ....
+    enter if/else error validations 
+})
+
+app.get('mongooses/edit/:id', function(res, req)){
+    res.render('editform')
+}
+app.post('mongoooses/:id', function(res,req){
+    mongoose.findone({_id: req.params.id}) function(err, mongoose)
+    mongoose.name = req.body.namemongoose.save(function(err, mongoose))
+    res.redirect('/')
+
+})
+
+app.post('mongoose/destory/:id', function(res, req)){
+    mongoose.fineone({_id: req.params.id})
+    mongoose.remove({_id: req.params.id}function (err)){
+        res.redirect('/')
+    }
+}

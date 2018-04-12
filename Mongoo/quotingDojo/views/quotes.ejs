@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QUOTES</title>
+</head>
+<body>
+
+    <% for(var q of quotes) { %>
+        <%= q.name %>
+        <%= q.quote %>
+        <%= q.date %>
+        <br>
+        <hr>
+
+   <% } %>
+    <a href="/"><button class="btn btn-info">Create a quote!</button></a> 
+</body>
+</html>

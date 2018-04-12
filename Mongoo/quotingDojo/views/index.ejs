@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+    <form action='/quotes' method='POST'>
+    <label>Name:</label>
+    <input type='text' name='name' class="form-control">
+    <br>
+    <label>Quote:</label>
+    <textarea name='quote' class="form-control"></textarea>
+    <button>Add my quote</button>
+
+
+    <% if(typeof(errors) != 'undefined' ) { %>
+        
+            <% for (var x in errors) { %>
+            <%= errors[x].message %>
+            <% } %>
+        
+    <% } %>
+</form>
+<a href="/viewQuotes"><button class="btn btn-info">Skip to Quotes!</button></a>
+</body>
+</html>

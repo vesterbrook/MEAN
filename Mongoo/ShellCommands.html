@@ -1,0 +1,26 @@
+Creating a database using mongo and using the terminal.
+
+
+enter the mongo shell
+1.create a database called "my_first_db"
+// I used "use my_first_db" as a command. Because there wasnt a db named that it automatically created one for me. 
+2. Create students collection
+//db.createCollection("students)
+3.Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+//db.students.insert({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday{month:NUMBER, day:NUMBER, year:NUNMBER}}) 
+4. create 5 students with the above info. 
+//see answer 3
+5.get all students
+//db.students.find().pretty()
+6. retrieve all students who are from california
+//db.students.find({home_state: "california"}).pretty()
+7.Get all students whose lucky number is:
+greater than 3
+less than or equal to 10
+between 1 and 9 (inclusive)
+// students whose fave number is greater than 3-> db.students.find({lucky_number: {$gt: 3}}).pretty()
+//less trhan of equal to 10 -> db.students.find({lucky_number: {$lte:10}}).pretty()
+//between  1 and 9 COME BACK
+8.Add a field to each student collection called 'interests' that is an ARRAY.  It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation.
+//db.students.update({}, {$set: {interests: ["coding", "brunch", "mongo"]}}, false, true)
+9.Add some unique interests for each particular student into each of their interest arrays.
