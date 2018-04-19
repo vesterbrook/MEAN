@@ -6,6 +6,8 @@ var mongoose = require("mongoose");
 var app = express();
 
 app.use(bodyParser.json());
+app.use(express.static( __dirname + '/angular/dist' ));
+app.set("views", path.join(__dirname, "./views"));
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/restfultaskAPI');
@@ -23,6 +25,10 @@ var TaskSchema = new mongoose.Schema({
 
 mongoose.model('Task', TaskSchema)
 var Task = mongoose.model('Task')
+
+// app.get('/', function(req, res){
+//     res.render("index")
+// })
 
 app.get('/', function(req, res){
     Task.find({}, function (err, tasks){

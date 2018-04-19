@@ -1,0 +1,47 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+</div>
+<h2>Some hoopla</h2>
+<h2>Something new to do:</h2>
+<form (submit)='createTask()'>
+  <p>{{ newTask | json }}</p>
+  <input type='text' name='newTask.title' [(ngModel)]='newTask.title'/>
+  <input type='text' name='newTask.description' [(ngModel)]='newTask.description' />
+  <input type='submit' value='create task' />
+</form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{task.['title']}}</td>
+            <td>{{task.description}}</td>
+            <td>
+              <button (click)='getTaskById(task.id)'>View Task</button>
+              <button (click='updated=task')>Update Task</button>
+              <button (click)='delete(task.id)'>Delete Task</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <form (submit)='taskUpdate(updated.id'>
+        <p>{{updates | json}}</p>
+        <label>Title:</label>
+        <input type="text" name="updated.title" [(mgModel)]="updated.title"/>
+        <label>Description:</label>
+        <input type="text" name="updated.description" [(ngModel)]="updated.description"/>
+        <input type="submit" value="update and save">
+      </form>'
+
