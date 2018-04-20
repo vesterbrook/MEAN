@@ -1,0 +1,34 @@
+<h1>Add a new product!</h1>
+
+<form #addForm ="ngForm" (submit) = "addProduct()">
+  <label>Title:</label>
+  <input
+  type="text"
+  name="title"
+  required
+ 
+  [(ngModel)]="newProduct.title"
+  #product = "ngModel"
+  />
+  <br>
+
+  <label>Price</label>
+  <input
+  type="currency"
+  name="price"
+  required
+  
+  [(ngModel)]="newProduct.price"
+  #price = "ngModel"
+  />
+  <br>
+  <label>Image Url</label>
+  <input 
+  type="text"
+  name="image"
+  [(ngModel)]="newProduct.image"
+  #image = "ngModel"
+  />
+  <button type="reset">Cancel</button>
+  <button type="submit" [disabled]= "!addForm.valid">Create</button>
+</form>

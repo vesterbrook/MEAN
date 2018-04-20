@@ -1,0 +1,14 @@
+<h2>Edit Author:</h2>
+
+<form #editForm = "ngForm" (submit) = "editAuthor()">
+    <label>Author Name:</label>
+    <input 
+    type="text"
+    name="name"  
+    required
+    minlength="3"
+    [(ngModel)]="editAut.name"
+    #author = "ngModel"
+    />
+    <button type="submit" [disabled]= "!editForm.valid">Edit author</button>
+</form>

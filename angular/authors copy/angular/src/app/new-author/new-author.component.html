@@ -1,0 +1,15 @@
+
+<p>Add a new author:</p>
+
+<form #authorForm = "ngForm" (submit) = "addAuthor()">
+    <label>Author Name:</label>
+    <input 
+    type="text"
+    name="author"  
+    required
+    minlength="3"
+    [(ngModel)]="newAuthor.name"
+    #author = "ngModel"
+    />
+    <button type="submit" [disabled]= "!authorForm.valid">Add author</button>
+</form>

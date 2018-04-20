@@ -1,0 +1,32 @@
+<h1>Edit Product</h1>
+
+<form #editForm = "ngForm" (submit) = "editProduct()">
+    <label>Title:</label>
+  <input
+  type="text"
+  name="title"
+  required
+  minlength="3"
+  [(ngModel)]="editProd.title"
+  #product = "ngModel"
+  />
+  <br>
+  <label>Price</label>
+  <input
+  type="currency"
+  name="price"
+  required
+  [(ngModel)]="editProd.price"
+  #price = "ngModel"
+  />
+  <br>
+  <label>Image Url</label>
+  <input 
+  type="text"
+  name="image"
+  [(ngModel)]="editProd.image"
+  #image = "ngModel"
+  />
+  <button (click)='deleteProduct(p._id)'>Delete</button>
+  <button type="submit" [disabled]= "!editForm.valid">Update</button>
+</form>
